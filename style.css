@@ -70,3 +70,10 @@ body, html {
   height: 540px;     
   margin: 0 auto;    /* Center horizontally */
 }
+.close-button {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
