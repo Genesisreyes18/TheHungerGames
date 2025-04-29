@@ -52,6 +52,7 @@
     <body style="background-image: url('background.png'); background-size: cover; background-repeat: no-repeat; background-position: center; height: 100vh; margin: 0;"> 
     
     <!-- About Section -->
+    
       <div class="w3-container" style="padding:128px 16px;" id="about">
         <h3 class="w3-center">ABOUT</h3>
 
@@ -102,28 +103,52 @@
       </div>
     </div>
     <!-- Video Section -->
-    <div class="w3-container w3-white" style="padding:128px 16px;" id="video">
+  <div id="player">
+    <div class="w3-container w3-center" style="padding:128px 16px;" id="video">
       <h3 class="w3-center">VIDEO</h3>
-        <!-- Google Drive embed using iframe -->
-        <iframe src="https://drive.google.com/file/d/175JyDv-xYbq_sk-XKpdplOAva_bOCPzf/preview" 
-                width="100%" 
-                height="600" 
-                allow="autoplay" 
-                style="border: none; display: block; margin: auto;">
-        </iframe>
+      <iframe width="560" height="315" 
+              src="https://www.youtube.com/embed/DkSE7mISg7k?si=85j2dmvv0cvwc_qN" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen>
+      </iframe>
     </div>
+  </div>
+
+  
     
+
+
+  <!-- Modal shown when the original video ends -->
+  <div id="choiceModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <p>What would you like to watch next?</p>
+      <button data-video="a0xyK0eDHbc">Got all my classes</button>
+      <button data-video="PSrgtfrtNRo">None of my classes</button>
+      <button data-video="DkSE7mISg7k">Register!</button> <!-- Default video that is playing -->
+      <button data-video="PSrgtfrtNRo">Got some courses</button>
+    </div>
+  </div>
+
+  
+
+
     <!-- BS Section -->
     <div class="w3-container w3-center" style="padding:128px 16px; background-color: lightgray;" id="bts">
         <h3>BEHIND THE SCENES</h3>
         <!-- Google Drive embed using iframe -->
-        <iframe src="https://drive.google.com/file/d/175JyDv-xYbq_sk-XKpdplOAva_bOCPzf/preview" 
-        width="100%" 
-        height="600" 
-        allow="autoplay" 
-        style="border: none; display: block; margin: auto;">
-        </iframe>
+        <div style="position:relative; width:100%; height:600px; overflow:hidden;">
+          <iframe src="https://drive.google.com/file/d/1qDqna-Ln8-RUCS4EmQz7H9c8Hy55Gy8g/preview"
+          width="1030px" 
+          height="580" 
+          allow="autoplay" 
+          style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); border:none;">
+          </iframe>
+        </div>   
     </div>
-
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="script.js"></script>
 </body>
 </html>
