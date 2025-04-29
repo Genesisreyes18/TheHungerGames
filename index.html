@@ -103,37 +103,22 @@
       </div>
     </div>
     <!-- Video Section -->
-  <div id="player">
     <div class="w3-container w3-center" style="padding:128px 16px;" id="video">
-      <h3 class="w3-center">VIDEO</h3>
-      <iframe width="560" height="315" 
-              src="https://www.youtube.com/embed/DkSE7mISg7k?si=85j2dmvv0cvwc_qN" 
-              title="YouTube video player" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" 
-              allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-
-  
-    
-
-
-  <!-- Modal shown when the original video ends -->
-  <div id="choiceModal" class="modal" style="display:none;">
-    <div class="modal-content">
-      <p>What would you like to watch next?</p>
-      <button data-video="a0xyK0eDHbc">Got all my classes</button>
-      <button data-video="PSrgtfrtNRo">None of my classes</button>
-      <button data-video="DkSE7mISg7k">Register!</button> <!-- Default video that is playing -->
-      <button data-video="PSrgtfrtNRo">Got some courses</button>
-    </div>
-  </div>
-
-  
-
+        <h3 class="w3-center">VIDEO</h3>
+        <!-- THIS div will be replaced by the YT player -->
+        <div id="player"></div>
+      </div>
+      
+      <!-- Modal shown when the video ends -->
+      <div id="choiceModal" class="modal">
+        <div class="modal-content">
+          <p>What would you like to watch next?</p>
+          <button data-video="a0xyK0eDHbc">Got all my classes</button>
+          <button data-video="PSrgtfrtNRo">None of my classes</button>
+          <button data-video="TWuZp5fy1r8">Got some courses</button>
+          <button data-video="DkSE7mISg7k">Registration</button>
+        </div>
+      </div>
 
     <!-- BS Section -->
     <div class="w3-container w3-center" style="padding:128px 16px; background-color: lightgray;" id="bts">
