@@ -1,4 +1,22 @@
-// Modal Image Gallery
+// script.js
+
+// Sidebar Toggle
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+function w3_close() {
+  mySidebar.style.display = 'none';
+}
+
+
+// Modal Image Gallery 
 function onClick(element) {
   document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
@@ -6,55 +24,37 @@ function onClick(element) {
   captionText.innerHTML = element.alt;
 }
 
-// Toggle sidebar
-var mySidebar = document.getElementById("mySidebar");
 
-function w3_open() {
-  mySidebar.style.display = (mySidebar.style.display === 'block') ? 'none' : 'block';
-}
-
-function w3_close() {
-  mySidebar.style.display = "none";
-}
-
-//youtube video
-// 1) Load YouTube IFrame API asynchronously
-const tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-document.head.appendChild(tag);
-
+// YouTube “Quiz” Modal 
 let player;
-const modal = document.getElementById('choiceModal');
+const choiceModal = document.getElementById('choiceModal');
 
-// 2) Called by the YouTube API when ready
+// This function is called by the YouTube IFrame API once it's loaded
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '315',
     width: '560',
-    videoId: 'DkSE7mISg7k',  // your original video ID
+    videoId: 'DkSE7mISg7k',  // initial video
     events: {
       'onStateChange': onPlayerStateChange
     }
   });
 }
 
-// 3) Detect when the video ends
+// Show the modal when the video ends
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
-    modal.style.display = 'flex';
+    choiceModal.style.display = 'flex';
   }
 }
 
-// 4) Swap in the selected “option” video on button click
-document.addEventListener('DOMContentLoaded', () => {
-  modal.querySelectorAll('button[data-video]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const vid = btn.getAttribute('data-video');
-      modal.style.display = 'none';
-      player.loadVideoById(vid);
+// Wire up each quiz button to load the next video
+document.addEventListener('DOMContentLoaded', function() {
+  choiceModal.querySelectorAll('button[data-video]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const nextVideoId = this.getAttribute('data-video');
+      choiceModal.style.display = 'none';
+      player.loadVideoById(nextVideoId);
     });
   });
 });
-
-// expose API-ready callback
-window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
