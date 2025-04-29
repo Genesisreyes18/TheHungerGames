@@ -57,4 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
       player.loadVideoById(nextVideoId);
     });
   });
+  const closeButton = document.querySelector('.close-button');
+
+  if (closeButton) {
+    closeButton.addEventListener('click', () => {
+      choiceModal.style.display = 'none';
+    });
+  }
 });
